@@ -43,10 +43,10 @@ public class WordSquareTest {
     public void find4WordsTest(){
         Dictionary dictionary = new Dictionary(hashWordTable);
         final String input = "4 eeeeddoonnnsssrv";
-        dictionary.generateWordSquare(input);
+        dictionary.findAnagrams(input);
         Map<Character, Long> freqMap = Utils.createFreuqencyMap(input);
         WordSquare wordSquare = new WordSquare();
-        List<String> actualOutput = wordSquare.findWordSquares(dictionary.getFinalConfirmedWords(), freqMap);
+        List<String> actualOutput = wordSquare.findWordSquares(dictionary.getConfirmedAnagrams(), freqMap);
         List<String> expectedOutput = Arrays.asList("rose", "oven", "send", "ends");
         assertEquals(actualOutput, expectedOutput);
         printSquares(actualOutput, input);
@@ -56,10 +56,10 @@ public class WordSquareTest {
     public void findAlternative4WordsTest(){
         Dictionary dictionary = new Dictionary(hashWordTable);
         final String input = "4 aaccdeeeemmnnnoo";
-        dictionary.generateWordSquare(input);
+        dictionary.findAnagrams(input);
         Map<Character, Long> freqMap = Utils.createFreuqencyMap(input);
         WordSquare wordSquare = new WordSquare();
-        List<String> actualOutput = wordSquare.findWordSquares(dictionary.getFinalConfirmedWords(), freqMap);
+        List<String> actualOutput = wordSquare.findWordSquares(dictionary.getConfirmedAnagrams(), freqMap);
         List<String> expectedOutput = Arrays.asList("moan", "once", "acme", "need");
         assertEquals(actualOutput, expectedOutput);
         printSquares(actualOutput, input);
@@ -69,10 +69,10 @@ public class WordSquareTest {
     public void find5WordsTest(){
         Dictionary dictionary = new Dictionary(hashWordTable);
         final String input = "5 aaaeeeefhhmoonssrrrrttttw";
-        dictionary.generateWordSquare(input);
+        dictionary.findAnagrams(input);
         Map<Character, Long> freqMap = Utils.createFreuqencyMap(input);
         WordSquare wordSquare = new WordSquare();
-        List<String> actualOutput = wordSquare.findWordSquares(dictionary.getFinalConfirmedWords(), freqMap);
+        List<String> actualOutput = wordSquare.findWordSquares(dictionary.getConfirmedAnagrams(), freqMap);
         List<String> expectedOutput = Arrays.asList("feast", "earth", "armor", "stone", "threw");
         assertEquals(actualOutput, expectedOutput);
         printSquares(actualOutput, input);
@@ -82,10 +82,10 @@ public class WordSquareTest {
     public void findAlternative5WordTest(){
         Dictionary dictionary = new Dictionary(hashWordTable);
         final String input = "5 aabbeeeeeeeehmosrrrruttvv";
-        dictionary.generateWordSquare(input);
+        dictionary.findAnagrams(input);
         Map<Character, Long> freqMap = Utils.createFreuqencyMap(input);
         WordSquare wordSquare = new WordSquare();
-        List<String> actualOutput = wordSquare.findWordSquares(dictionary.getFinalConfirmedWords(), freqMap);
+        List<String> actualOutput = wordSquare.findWordSquares(dictionary.getConfirmedAnagrams(), freqMap);
         List<String> expectedOutput = Arrays.asList("heart", "ember", "above", "revue", "trees");
         assertEquals(actualOutput, expectedOutput);
         printSquares(actualOutput, input);
@@ -95,10 +95,10 @@ public class WordSquareTest {
     public void find7WordTest(){
         Dictionary dictionary = new Dictionary(hashWordTable);
         final String input = "7 aaaaaaaaabbeeeeeeedddddggmmlloooonnssssrrrruvvyyy";
-        dictionary.generateWordSquare(input);
+        dictionary.findAnagrams(input);
         Map<Character, Long> freqMap = Utils.createFreuqencyMap(input);
         WordSquare wordSquare = new WordSquare();
-        List<String> actualOutput = wordSquare.findWordSquares(dictionary.getFinalConfirmedWords(), freqMap);
+        List<String> actualOutput = wordSquare.findWordSquares(dictionary.getConfirmedAnagrams(), freqMap);
         List<String> expectedOutput = Arrays.asList("bravado", "renamed", "analogy", "valuers", "amoebas", "degrade", "odyssey");
         assertEquals(actualOutput, expectedOutput);
         printSquares(actualOutput, input);
@@ -108,10 +108,10 @@ public class WordSquareTest {
     public void findNoSquareTest(){
         Dictionary dictionary = new Dictionary(hashWordTable);
         final String input = "4 eeeedzoobnnsssrv";
-        dictionary.generateWordSquare(input);
+        dictionary.findAnagrams(input);
         Map<Character, Long> freqMap = Utils.createFreuqencyMap(input);
         WordSquare wordSquare = new WordSquare();
-        List<String> actualOutput = wordSquare.findWordSquares(dictionary.getFinalConfirmedWords(), freqMap);
+        List<String> actualOutput = wordSquare.findWordSquares(dictionary.getConfirmedAnagrams(), freqMap);
         assertTrue(actualOutput.isEmpty());
         printSquares(actualOutput, input);
     }

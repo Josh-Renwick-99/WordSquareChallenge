@@ -8,12 +8,12 @@ public class Utils {
     public static <T> Map<Character, Long> createFreuqencyMap(String input) {
         List<Character> elements = input.chars().mapToObj(c -> (char) c).collect(Collectors.toList());
         return elements.stream()
-                .filter(c -> !Character.isWhitespace(c) && !Character.isDigit(c))
+                .filter(c -> !Character.isWhitespace(c) && !Character.isDigit(c)) //extra sanitation to filter out white space and digits
                 .collect(
                         Collectors.groupingBy(
                                 Function.identity(),
                                 HashMap::new,
-                                Collectors.counting()
+                                Collectors.counting() //maps to HashMap using Character c as key and count of c as value
                         )
                 );
     }

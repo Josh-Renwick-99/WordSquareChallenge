@@ -36,12 +36,14 @@ public class Main {
         System.out.println("Exiting the program");
     }
 
+    //process for initialising a new word square solver
     public static List<String> wordSquareSolver(String input){
-        Dictionary dictionary = new Dictionary();
-        dictionary.generateWordSquare(input);
-        Map<Character, Long> freqMap = Utils.createFreuqencyMap(input);
-        WordSquare wordSquare = new WordSquare();
-        return wordSquare.findWordSquares(dictionary.getFinalConfirmedWords(), freqMap);
+        Dictionary dictionary = new Dictionary(); //first create new dictionary
+        dictionary.findAnagrams(input); //find every possible anagram for input and saves to object
+        Map<Character, Long> freqMap = Utils.createFreuqencyMap(input); //then create character freq map of input
+        WordSquare wordSquare = new WordSquare(); //initalise a word square object
+        return wordSquare.findWordSquares(dictionary.getConfirmedAnagrams(), freqMap); //uses confiremdAnagrams of the
+                                                                                    // current dictionary and finds word squares and confirms against original freq map
     }
 
     public static boolean sanitiseInput(String input){

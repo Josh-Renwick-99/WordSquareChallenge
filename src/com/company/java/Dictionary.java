@@ -13,7 +13,7 @@ import java.util.OptionalInt;
 @Data
 public class Dictionary {
 
-    private List<String> finalConfirmedWords;
+    private List<String> confirmedAnagrams;
     boolean verbose = false;
     HashTable wordHashTable; //amount of lines in dictionary.txt
 
@@ -26,10 +26,10 @@ public class Dictionary {
         this.wordHashTable = hashTable;
     }
 
-    public void generateWordSquare(String input){
+    public void findAnagrams(String input){
         List<String> generatedWords = new ArrayList<>();
         List<String> confirmedWords = new ArrayList<>();
-        OptionalInt result = input.chars()
+        OptionalInt result = input.chars() //additional input sanitation
                 .filter(Character::isDigit)
                 .map(c -> c - '0')
                 .findFirst();
@@ -46,7 +46,7 @@ public class Dictionary {
         if (verbose) {
             System.out.println("Found words potential words within input string \n" + confirmedWords);
         }
-        finalConfirmedWords = confirmedWords;
+        confirmedAnagrams = confirmedWords;
     }
 
     public static void generateWords(Map<Character, Long> frequencyMap, int wordLength, List<String> generatedWordList) {
@@ -85,8 +85,8 @@ public class Dictionary {
     }
 
     public static HashTable loadDictionary(){
-        String FILEPATH = "src/com/company/resources/dictionaries/words.txt";
-        HashTable hashTable = new HashTable(225114);
+        final String FILEPATH = "src/com/company/resources/dictionaries/words.txt";
+        HashTable hashTable = new HashTable(225114); //size of hashtable is equal to the amount of words in words.txt
         try {
             BufferedReader in = new BufferedReader(new FileReader(
                     FILEPATH));

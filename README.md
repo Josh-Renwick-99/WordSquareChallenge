@@ -22,9 +22,9 @@ The program will give a list of instructions on how to use
 
 It is as easy as inputting a string in the textbox in the format of N N^2 character where N is the character length of the word such as '4 eeeeddoonnnsssrv'
 
-##How it works
+If wanting more specific logging, edit the verbose variable in WordSquare and Dictionary class to true
 
-The file path variable in the dictionary class AND the wordSquareTest class needs to be changed to your system specific filepath of the words.txt file in the resources package. The test class contains the path too so that the program can load a hash table before any tests are run to reduce repetition.
+##How it works
 
 The program uses a wide range of technology to solve this problem. 
 
@@ -142,6 +142,7 @@ Implementation of a hashtable has greatly improved efficiency.
 4 word problems have had their time reduced from 15 seconds to 50-100ms, 5 word problems have been reduced from 25+ minutes to 200-500ms and 7 word problems have been reduced from probably months to 2 minutes. 
 
 ###Further Improvements
+
 -Switch from System.out as debugging and move log lines to a logging framework such as SLF4J
 
 
@@ -149,3 +150,7 @@ Implementation of a hashtable has greatly improved efficiency.
 
 
 -optimise the permutation generator, its okay for up to 6 length words but 7+ and it takes a minute or two to generate every permutation
+
+###TODO
+
+-Currently the program has capability to return more than one solved word square for an input string. For example, during development I found this string '7 aaaaaaaaabbeeeeeeedddddggmmlloooonnssssrrrruvvyyy' from the example has actually 3 solutions but due to the nature of how the word square is being handled and returned it caused bugs elsewhere in the code. If i had more time, I would implement a fix to this and alert the user if more than one word square can be found
