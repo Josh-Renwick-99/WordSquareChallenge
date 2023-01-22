@@ -40,11 +40,11 @@ When the list of possible words is generated it is passed into the hashtable to 
 
 With the list of confirmed words, it is then passed into the WordSquare class where it will be turned into a TriNode tree.
 
-Each word is defined as a new node in the tree, the word is seeet as the root of the node. Each iteration of the for loop will find the character at the current index and calculates the index of the array by subtracting the ascii value of a. If the next node of the index is null then we create a new node in the tree and assigns it to the next open array at that index. The node is finally updated to the next node at the pre calculated index
+Each word is defined as a new node in the tree, the word is set as the root of the node. Each iteration of the for loop will find the character at the current index and calculates the index of the array by subtracting the ascii value of a. If the next node of the index is null then we create a new node in the tree and assigns it to the next open array at that index. The node is finally updated to the next node at the pre calculated index
 
 Once the tree structure is made then we have to traverse it to find any and every possible combination that results in a word square
 
-The program will then recursively search the tree for each node in the tree and backtrack through to check each combination of word to determine whether or not the word square pattern can be matched.
+The program will then recursively search the tree for each node in the tree and backtrack through to check each combination of word to determine whether the word square pattern can be matched.
 
 Once a potential word square is solved, each "solution" will be converted into a character frequency map and then compared against the original input character frequency map to determine whether the solution is actually valid or not based on the initial characters its given.
 
@@ -99,7 +99,7 @@ the next word would need to check its starting character is 'o'
 
 the word after would check if the starting character is 'a' and so on. 
 
-this would need to recursively call itself for every word and every order else theres chance it will miss combinations due to acceptig the first instance that validates the checks.
+this would need to recursively call itself for every word and every order else there's chance it will miss combinations due to acceptig the first instance that validates the checks.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -108,12 +108,12 @@ Another potential approach would be to use the character frequency map from earl
 generate a character frequency map for each set of strings and compare it against the original, if the two are equal then try validate a word square
 
 ####Word square validation
-Finally once all other parts are done we can easily check if the set contains a word square 
+Finally, once all other parts are done we can easily check if the set contains a word square 
 
 
 ####Updates
 
-The initial 2 ways I thought about to generate potential word squares didnt work. Each process had its own problems. 
+The initial 2 ways I thought about to generate potential word squares didn't work. Each process had its own problems. 
 
 Firstly, trying to match words together by finding words that started with the 2nd character of the first word etc had a few bugs. This might have been due to how I was trying to handle the recursion calls as I couldnt find a good way of making a stopping condition. The alogorithm itself would also miss some combinations, this process would also take a long time to find matches. This way isnt feasible
 
@@ -143,13 +143,13 @@ Implementation of a hashtable has greatly improved efficiency.
 
 ###Further Improvements
 
--Switch from System.out as debugging and move log lines to a logging framework such as SLF4J
+-Switch from System.Out as debugging tool and move log lining to a logging framework such as SLF4J
 
 
--Minor improvement would be to optimise the dictonary file itself and split into 3/4/5/6/etc character length words (minor minor improvement)
+-Minor improvement would be to optimise the dictionary file itself and split into 3/4/5/6/etc character length words (minor minor improvement)
 
 
--optimise the permutation generator, its okay for up to 6 length words but 7+ and it takes a minute or two to generate every permutation
+-optimise the permutation generator, it's okay for up to 6 length words but 7+ and it takes a minute or two to generate every permutation
 
 ###TODO
 
